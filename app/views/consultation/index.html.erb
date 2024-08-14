@@ -1,0 +1,31 @@
+<div class="w-full max-w-xl bg-white p-8 rounded-lg shadow-lg mx-4">
+  <div class="flex justify-center">
+    <h2 class="text-center text-[23px] font-semibold mb-2">Asisten Kesehatanmu</h2>
+  </div>
+  <%= form_with url: chat_path, method: :post, local: true, class: "space-y-4" do |form| %>
+    <div>
+      <%= form.label :question, "Ajukan Pertanyaan:", class: "block text-lg font-medium text-gray-700" %>
+      <%= form.text_field :question,
+                          value: @question,
+                          placeholder: "Masukkan Pertanyaanmu Disini...",
+                          class: "
+                            mt-1 block w-full border-gray-300 rounded-md
+                            shadow-sm focus:border-indigo-500 focus:ring
+                            focus:ring-indigo-500 focus:ring-opacity-50
+                          ",
+                          required: true %>
+    </div>
+    <%= form.submit "Kirim Pertanyaan",
+                    id: "send-button",
+                    class: "
+                      w-full py-2 px-4 bg-indigo-700 text-white font-semibold
+                      rounded-md shadow-sm hover:bg-indigo-800 focus:outline-none
+                      focus:ring-2 focus:ring-indigo-500
+                    " %>
+  <% end %>
+
+  <div class="mt-6 p-4 bg-gray-50 border border-gray-300 rounded-md mb-4">
+    <h2 class="text-lg font-semibold text-gray-800">Jawaban:</h2>
+    <p class="mt-2 text-gray-600" id="answer">Kamu belum memiliki</p>
+  </div>
+</div>
